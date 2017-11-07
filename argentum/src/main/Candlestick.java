@@ -1,4 +1,4 @@
-package Candlestick;
+package main;
 
 import java.util.Calendar;
 
@@ -7,11 +7,17 @@ import java.util.Calendar;
  * @author joaohenrique
  */
 public class Candlestick {
+    /* Preço da primeira negociação do dia */
     private final double abertura;
+    /* Preço da última negociação do dia */
     private final double fechamento;
+    /* Preço da negociação mais barata do dia */
     private final double minimo;
+    /* Preço da negociação mais cara do dia */
     private final double maximo;
-    private final double volumen;
+    /* Quantidade de dinheiro que passou em todas as negociações nesse dia */
+    private final double volume;
+    /* Qual dia o resumo se refere */
     private final Calendar data;
 
     public Candlestick(double abertura, double fechamento, double minimo, double maximo, double volumen, Calendar data) {
@@ -19,7 +25,7 @@ public class Candlestick {
         this.fechamento = fechamento;
         this.minimo = minimo;
         this.maximo = maximo;
-        this.volumen = volumen;
+        this.volume = volumen;
         this.data = data;
     }
 
@@ -39,8 +45,8 @@ public class Candlestick {
         return maximo;
     }
 
-    public double getVolumen() {
-        return volumen;
+    public double getVolume() {
+        return volume;
     }
 
     public Calendar getData() {
