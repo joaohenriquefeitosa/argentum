@@ -1,6 +1,10 @@
 package main;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -59,5 +63,15 @@ public class Candlestick {
     
     public boolean isBaixa(){
         return this.abertura > this.fechamento;
+    }
+    
+    @Override
+    public String toString(){
+        
+        SimpleDateFormat dataFormatada = new SimpleDateFormat("dd/MM/yyyy");
+                     
+        return "[ Abertura: " + this.abertura + ", Fechamento: " + this.fechamento + 
+                ", Mínima: " + this.minimo + ", Máxima: " + this.maximo + ", Volume: " + this.volume + 
+                ", Data: " + (dataFormatada.format(this.data.getTime())) + " ]";
     }
 }
