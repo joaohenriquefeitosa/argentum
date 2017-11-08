@@ -15,6 +15,7 @@ public class CandlestickFactory {
         double minimo = negocios.isEmpty() ? 0 : Double.MAX_VALUE;
         double volume = 0;
         
+        
         for (Negocio negocio : negocios) {
             volume += negocio.getVolume();
             if(negocio.getPreco() > maximo)
