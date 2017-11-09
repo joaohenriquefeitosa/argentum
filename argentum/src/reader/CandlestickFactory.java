@@ -24,6 +24,10 @@ public class CandlestickFactory {
                 minimo = negocio.getPreco();
         }
         
+        if(negocios.size() == 1){
+            minimo = maximo;
+        }
+        
         double abertura = negocios.isEmpty() ? 0 : negocios.get(0).getPreco();
         double fechamento = negocios.isEmpty() ? 0 : negocios.get(negocios.size() - 1).getPreco();
         
