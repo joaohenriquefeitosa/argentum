@@ -26,7 +26,7 @@ public final class Negocio {
     }
 
     public Calendar getData() {
-        return data;
+        return (Calendar) this.data.clone();
     }
     
     public double getVolume(){
