@@ -35,4 +35,11 @@ public final class Negocio {
     public double getVolume(){
         return preco * quantidade;
     }
+
+    public boolean isMesmoDia(Calendar outraData) {
+        return data.get(Calendar.DATE) == outraData.get(Calendar.DATE) && 
+               data.get(Calendar.MONTH) == outraData.get(Calendar.MONTH) &&
+               data.get(Calendar.YEAR) == outraData.get(Calendar.YEAR);
+    }
+
 }
