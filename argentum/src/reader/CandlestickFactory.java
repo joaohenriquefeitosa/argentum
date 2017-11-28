@@ -1,5 +1,6 @@
 package reader;
 
+import java.util.ArrayList;
 import main.Candlestick;
 import main.Negocio;
 import java.util.Calendar;
@@ -32,5 +33,29 @@ public class CandlestickFactory {
         double fechamento = negocios.isEmpty() ? 0 : negocios.get(negocios.size() - 1).getPreco();
         
         return new Candlestick(abertura, fechamento, minimo, maximo, volume, data);
+    }
+
+    public List<Candlestick> constroiCandles(List<Negocio> todosNegocios) {
+        List<Candlestick> candles = new ArrayList<Candlestick>();
+        
+        List<Negocio> negociosDoDia = new ArrayList<Negocio>();
+        Calendar dataAtual = todosNegocios.get(0).getData();
+        
+        for(Negocio negocio : todosNegocios){
+            // se não for mesmo dia, fecha candles e reinicia variáveis
+            if(!negocio.isMesmoDia(dataAtual)){
+                Candlestick candleDoDia = constroiCandleParaData(dataAtual, negociosDoDia);
+                candles.add(candleDoDia);
+                negociosDoDia = new ArrayList<Negocio>();
+                dataAtual = negocio.getData();
+            }
+            negociosDoDia.add(negocio);           
+        }
+        // adiciona último candle
+           Candlestick candleDoDia = constroiCandleParaData(dataAtual, negociosDoDia);
+           candles.add(candleDoDia);
+            
+           return candles;
+        
     }
 }
