@@ -3,7 +3,7 @@ package test;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
-import main.Candlestick;
+import main.Candle;
 import main.Negocio;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
@@ -17,17 +17,17 @@ public class CandlestickTest {
     
     @Test(expected=IllegalArgumentException.class)
     public void precoMaximoNaoPodeSerMenorQueMinimo(){
-        new Candlestick(10, 20, 20, 10, 10000, Calendar.getInstance());        
+        new Candle(10, 20, 20, 10, 10000, Calendar.getInstance());        
     }
     
     @Test(expected=IllegalArgumentException.class)
     public void dataNaoPodeSerNula(){
-        new Candlestick(10, 20, 20, 40, 10000, null); 
+        new Candle(10, 20, 20, 40, 10000, null); 
     }
     
     @Test(expected=IllegalArgumentException.class)
     public void naoAceitaValoresNegativos(){
-        new Candlestick(-10, -20, 20, 40, 10000, Calendar.getInstance()); 
+        new Candle(-10, -20, 20, 40, 10000, Calendar.getInstance()); 
     }
     
     @Test
@@ -56,7 +56,7 @@ public class CandlestickTest {
         List<Negocio> negocios = Arrays.asList(negocio8, negocio7, negocio6, negocio5, negocio2, negocio4, negocio1, negocio3);
         CandlestickFactory fabrica = new CandlestickFactory();
         
-        List<Candlestick> candles = fabrica.constroiCandles(negocios);
+        List<Candle> candles = fabrica.constroiCandles(negocios);
         
         assertEquals(3, candles.size());
         assertEquals(40.5, candles.get(0).getAbertura(), 0.00001);

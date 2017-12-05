@@ -3,7 +3,7 @@ package testes;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
-import main.Candlestick;
+import main.Candle;
 import main.Negocio;
 import reader.CandlestickFactory;
 
@@ -23,7 +23,7 @@ public class TestaCandlestickFactory {
         List<Negocio> negocios = Arrays.asList(negocio1, negocio2, negocio3, negocio4);
         
         CandlestickFactory fabrica = new CandlestickFactory();
-        Candlestick candle = fabrica.constroiCandleParaData(hoje, negocios);
+        Candle candle = fabrica.constroiCandleParaData(hoje, negocios);
         
         System.out.println(candle.getAbertura());
         System.out.println(candle.getFechamento());

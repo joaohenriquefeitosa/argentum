@@ -3,7 +3,7 @@ package testes;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
-import main.Candlestick;
+import main.Candle;
 import main.Negocio;
 import reader.CandlestickFactory;
 
@@ -24,7 +24,7 @@ public class TestaCandlestickSequenciaDecrescente {
         
         CandlestickFactory fabrica = new CandlestickFactory();
         
-        Candlestick candle = fabrica.constroiCandleParaData(hoje, negocios);
+        Candle candle = fabrica.constroiCandleParaData(hoje, negocios);
         
         System.out.println(candle.toString());
     }

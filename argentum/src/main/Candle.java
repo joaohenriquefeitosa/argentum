@@ -10,7 +10,7 @@ import java.util.logging.Logger;
  *
  * @author joaohenrique
  */
-public class Candlestick {
+public class Candle {
     /* Preço da primeira negociação do dia */
     private final double abertura;
     /* Preço da última negociação do dia */
@@ -24,7 +24,7 @@ public class Candlestick {
     /* Qual dia o resumo se refere */
     private final Calendar data;
 
-    public Candlestick(double abertura, double fechamento, double minimo, double maximo, double volume, Calendar data) {
+    public Candle(double abertura, double fechamento, double minimo, double maximo, double volume, Calendar data) {
         if(minimo > maximo){
             throw new IllegalArgumentException("O mínimo não pode ser maior que o máximo!");
         }

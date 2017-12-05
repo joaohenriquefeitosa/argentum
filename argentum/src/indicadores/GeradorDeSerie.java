@@ -8,7 +8,7 @@ package indicadores;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import main.Candlestick;
+import main.Candle;
 
 /**
  *
@@ -24,9 +24,9 @@ public class GeradorDeSerie {
      *  tais candles encapsuladas em uma Serie Tempora.
      **/
     public static SerieTemporal criaSerie(double... valores){
-        List<Candlestick> candles = new ArrayList<Candlestick>();
+        List<Candle> candles = new ArrayList<Candle>();
         for(double d : valores){
-            candles.add(new Candlestick(d, d, d, d, 1000, Calendar.getInstance()));
+            candles.add(new Candle(d, d, d, d, 1000, Calendar.getInstance()));
         }
         return new SerieTemporal(candles);
     }
