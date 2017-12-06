@@ -11,12 +11,18 @@ import main.Candle;
  *
  * @author joaohenrique
  */
-public class MediaMovelSimples {
+public class MediaMovelSimples implements Indicador {
+    @Override
     public double calcula(int posicao, SerieTemporal serie){
         double soma = 0.0;
         for (int i = posicao - 2; i <= posicao; i++){
             soma += serie.getCandle(i).getFechamento();
         }
         return soma / 3;
+    }
+    
+    @Override
+    public String toString(){
+        return "Média Móvel simples de fechamento";
     }
 }
