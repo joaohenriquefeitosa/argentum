@@ -20,14 +20,17 @@ public final class Negocio {
         this.data = data;
     }
 
+    @Coluna(posicao=0)
     public double getPreco() {
         return preco;
     }
-
+    
+    @Coluna(posicao=1)
     public int getQuantidade() {
         return quantidade;
     }
-
+    
+    @Coluna(posicao=2)
     public Calendar getData() {
         return (Calendar) this.data.clone();
     }
